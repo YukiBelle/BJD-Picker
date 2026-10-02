@@ -61,6 +61,27 @@ const allSets = [
             { name: "Nun Whale", position: "BotLeft", imageNum: 3 },
             { name: "Clown Chameleon", position: "BotRight", imageNum: 6 }
         ]
+    },
+    {
+        id: 4,
+        name: "Mita Tarot",
+        folderName: "MITA-TAROT",
+        teaserImage: "images/set-images/MITA-TAROT/teaser.jpg",
+        fullsetImage: "images/set-images/MITA-TAROT/fullset.jpg",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
+        isPopular: true,
+        isNew: false,
+        isRandom: false,
+        isUndetermined: false,
+        orientation: "vertical",
+        characters: [
+            { name: "Star", position: "TopLeft", imageNum: 1 },
+            { name: "Hermit", position: "TopRight", imageNum: 4 },
+            { name: "Devil", position: "MiddleLeft", imageNum: 2 },
+            { name: "Emperor", position: "MiddleRight", imageNum: 5 },
+            { name: "Hangman", position: "BotLeft", imageNum: 3 },
+            { name: "Magician", position: "BotRight", imageNum: 6 }
+        ]
     }
 ];
 
