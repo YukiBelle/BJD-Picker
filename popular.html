@@ -51,8 +51,28 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 BJD Picker. All rights reserved.</p>
+        <p>&copy; 2026 BJD Picker. All rights reserved.</p>
     </footer>
+
+    <!-- Modal/Popup for full set view -->
+    <div id="setModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modalImage" src="" alt="Full Set View">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalDescription"></p>
+                    <div class="modal-characters">
+                        <div class="characters-label">Characters in Set:</div>
+                        <div id="modalCharacterList" class="character-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
     <script>
