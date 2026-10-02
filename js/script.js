@@ -14,8 +14,8 @@ const allSets = [
         characters: [
             { name: "Creamy Bischon-Pink", position: "TopLeft", imageNum: 1 },
             { name: "Virtual Butterfly-Purple", position: "TopMiddle", imageNum: 3 },
-			{ name: "Wolf Girl-Black", position: "TopRight", imageNum: 5 },
-			{ name: "Charmed Serpent-Green", position: "BotLeft", imageNum: 2 },
+            { name: "Wolf Girl-Black", position: "TopRight", imageNum: 5 },
+            { name: "Charmed Serpent-Green", position: "BotLeft", imageNum: 2 },
             { name: "Bunny Nurse-Light Blue", position: "BotMiddle", imageNum: 4 },
             { name: "Sea Hare-Blue", position: "BotRight", imageNum: 6 }
         ]
@@ -162,7 +162,8 @@ function renderHomePageSearch(searchTerm, filteredSets) {
             allSetsSection.style.display = 'block';
         }
         if (allSetsContainer) {
-            renderSets(filteredSets, 'allSetsContainer');
+            const searchFilteredSets = filteredSets.filter(set => !set.isRandom && !set.isUndetermined);
+            renderSets(searchFilteredSets, 'allSetsContainer');
         }
     }
 }
@@ -172,12 +173,12 @@ function renderHomePageSearch(searchTerm, filteredSets) {
 // ============================================
 
 function loadPopularSetsHome() {
-    const popularSets = allSets.filter(set => set.isPopular && !set.isRandom && !set.isUndetermined);
+    const allDisplaySets = allSets.filter(set => !set.isRandom && !set.isUndetermined);
     const container = document.getElementById('popularSetsContainer');
     
     if (container) {
         container.parentElement.style.display = 'block';
-        renderSets(popularSets, 'popularSetsContainer');
+        renderSets(allDisplaySets, 'popularSetsContainer');
     }
 }
 
