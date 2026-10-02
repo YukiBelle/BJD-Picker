@@ -487,7 +487,7 @@ body {
 .modal-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
 }
 
@@ -633,23 +633,24 @@ body {
         font-size: 1.5em;
     }
 
+    /* Keep horizontal as 3 columns, vertical as 2 columns on tablet */
     .character-list.horizontal {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 6px;
     }
 
     .character-list.vertical {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 6px;
     }
 
     .modal-characters .character-list.horizontal {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
     }
 
     .modal-characters .character-list.vertical {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 
@@ -683,6 +684,11 @@ body {
     .modal-body {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .modal-image-container {
+        width: 100%;
+        height: 300px;
     }
 
     .modal-info h2 {
@@ -723,15 +729,24 @@ body {
         font-size: 1.6em;
     }
 
-    .character-list.horizontal,
-    .character-list.vertical {
-        grid-template-columns: 1fr;
+    /* Mobile: Both horizontal and vertical as 2 columns */
+    .character-list.horizontal {
+        grid-template-columns: repeat(2, 1fr);
         gap: 5px;
     }
 
-    .modal-characters .character-list.horizontal,
+    .character-list.vertical {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .modal-characters .character-list.horizontal {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
     .modal-characters .character-list.vertical {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 8px;
     }
 
@@ -766,6 +781,11 @@ body {
 
     .modal-body {
         gap: 15px;
+    }
+
+    .modal-image-container {
+        width: 100%;
+        height: 250px;
     }
 
     .modal-info h2 {
