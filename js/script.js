@@ -40,6 +40,27 @@ const allSets = [
             { name: "Rinne", position: "BotLeft", imageNum: 3 },
             { name: "Zizi", position: "BotRight", imageNum: 6 }
         ]
+    },
+    {
+        id: 3,
+        name: "Code X Elite Agent",
+        folderName: "X-ELITE",
+        teaserImage: "images/set-images/X-ELITE/teaser.jpg",
+        fullsetImage: "images/set-images/X-ELITE/fullset.jpg",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
+        isPopular: true,
+        isNew: false,
+        isRandom: false,
+        isUndetermined: false,
+        orientation: "vertical",
+        characters: [
+            { name: "Nurse Bear", position: "TopLeft", imageNum: 1 },
+            { name: "Detective Eagle", position: "TopRight", imageNum: 4 },
+            { name: "Knight Rabbit", position: "MiddleLeft", imageNum: 2 },
+            { name: "Gunnar Wolf", position: "MiddleRight", imageNum: 5 },
+            { name: "Nun Whale", position: "BotLeft", imageNum: 3 },
+            { name: "Clown Chameleon", position: "BotRight", imageNum: 6 }
+        ]
     }
 ];
 
