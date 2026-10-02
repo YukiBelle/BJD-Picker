@@ -200,6 +200,19 @@ body {
     border: 2px solid transparent;
 }
 
+.set-note {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    background: #ffe0e6;
+    color: #b4234d;
+    border-radius: 8px;
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .set-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);

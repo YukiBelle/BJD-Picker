@@ -158,7 +158,8 @@ const allSets = [
         folderName: "BOXED-FURRY",
         teaserImage: "images/set-images/BOXED-FURRY/teaser.jpg",
         fullsetImage: "images/set-images/BOXED-FURRY/fullset.jpg",
-        description: "<Data for this set is still in process! Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
+		note: "WORK IN PROGRESS",
         isPopular: false,
         isNew: false,
         isRandom: false,
@@ -406,24 +407,26 @@ function createSetCard(set) {
         badgeHTML += '</div>';
     }
 
-    const orientationClass = set.orientation || 'horizontal';
+const orientationClass = set.orientation || 'horizontal';
+const noteHTML = set.note ? `<div class="set-note">${set.note}</div>` : '';
 
-    card.innerHTML = `
-        <div class="set-image-container">
-            ${badgeHTML}
-            <img class="set-gallery-image" src="${set.teaserImage}" alt="${set.name}" onerror="this.src='https://via.placeholder.com/300x250?text=BJD+Set'">
-        </div>
-        <div class="set-info">
-            <div class="set-name">${set.name}</div>
-            <div class="set-details">${set.description}</div>
-            <div class="characters-section">
-                <div class="characters-label">Characters (${set.characters.length}):</div>
-                <div class="character-list ${orientationClass}">
-                    ${charactersHTML}
-                </div>
+card.innerHTML = `
+    <div class="set-image-container">
+        ${badgeHTML}
+        <img class="set-gallery-image" src="${set.teaserImage}" alt="${set.name}" onerror="this.src='https://via.placeholder.com/300x250?text=BJD+Set'">
+    </div>
+    <div class="set-info">
+        <div class="set-name">${set.name}</div>
+        ${noteHTML}
+        <div class="set-details">${set.description}</div>
+        <div class="characters-section">
+            <div class="characters-label">Characters (${set.characters.length}):</div>
+            <div class="character-list ${orientationClass}">
+                ${charactersHTML}
             </div>
         </div>
-    `;
+    </div>
+`;
 
     const mainImage = card.querySelector('.set-gallery-image');
     const originalSrc = mainImage.src;
@@ -499,8 +502,14 @@ function openModal(setId) {
         this.src = 'https://via.placeholder.com/600x600?text=Full+Set+Image';
     };
 
-    document.getElementById('modalTitle').textContent = set.name;
-    document.getElementById('modalDescription').innerHTML = set.description;
+document.getElementById('modalTitle').textContent = set.name;
+
+const modalDescription = document.getElementById('modalDescription');
+if (set.note) {
+    modalDescription.innerHTML = `<strong>${set.note}</strong><br>${set.description}`;
+} else {
+    modalDescription.textContent = set.description;
+}
 
     const characterList = document.getElementById('modalCharacterList');
     const orientationClass = set.orientation || 'horizontal';
