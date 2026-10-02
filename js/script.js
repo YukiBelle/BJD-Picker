@@ -1,4 +1,3 @@
-// Sample data - replace with your actual sets
 const allSets = [
     {
         id: 1,
