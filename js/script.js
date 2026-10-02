@@ -506,7 +506,7 @@ document.getElementById('modalTitle').textContent = set.name;
 
 const modalDescription = document.getElementById('modalDescription');
 if (set.note) {
-    modalDescription.innerHTML = `<strong>${set.note}</strong><br>${set.description}`;
+    modalDescription.innerHTML = `<span class="set-note">${set.note}</span><br>${set.description}`;
 } else {
     modalDescription.textContent = set.description;
 }
