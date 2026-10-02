@@ -297,6 +297,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 3px;
+    cursor: pointer;
 }
 
 .character-tag:hover {
@@ -314,6 +315,46 @@ body {
     font-size: 0.7em;
     opacity: 0.8;
     font-style: italic;
+}
+
+/* Character Hover Popup */
+.character-hover-popup {
+    position: fixed;
+    z-index: 2000;
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 150px;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.character-hover-popup.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.character-hover-popup img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.character-hover-popup p {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    word-wrap: break-word;
+    max-height: 40px;
+    overflow: hidden;
 }
 
 /* Modal Character Grid - Horizontal */
@@ -615,6 +656,19 @@ body {
         padding: 12px 10px;
     }
 
+    .character-hover-popup {
+        max-width: 120px;
+    }
+
+    .character-hover-popup img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .character-hover-popup p {
+        font-size: 0.75em;
+    }
+
     .modal-content {
         padding: 20px;
         max-height: 95vh;
@@ -683,6 +737,19 @@ body {
     .modal-characters .character-tag {
         padding: 10px 8px;
         font-size: 0.9em;
+    }
+
+    .character-hover-popup {
+        max-width: 100px;
+    }
+
+    .character-hover-popup img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .character-hover-popup p {
+        font-size: 0.7em;
     }
 
     .modal-content {

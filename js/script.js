@@ -1,7 +1,9 @@
+// Sample data - replace with your actual sets
 const allSets = [
     {
         id: 1,
         name: "Electronic Pet Game World",
+        folderName: "EP-GW",
         teaserImage: "images/set-images/EP-GW/teaser.jpg",
         fullsetImage: "images/set-images/EP-GW/fullset.jpg",
         description: "A vibrant collection of digital-inspired BJD characters",
@@ -11,19 +13,20 @@ const allSets = [
         isUndetermined: false,
         orientation: "horizontal",
         characters: [
-            { name: "Creamy Bischon-Pink", position: "TopLeft" },
-            { name: "Virtual Butterfly-Purple", position: "TopMiddle" },
-            { name: "Wolf Girl-Black", position: "TopRight" },
-            { name: "Charmed Serpent-Green", position: "BotLeft" },
-            { name: "Bunny Nurse-Light Blue", position: "BotMiddle" },
-            { name: "Sea Hare-Blue", position: "BotRight" }
+            { name: "Creamy Bischon-Pink", position: "TopLeft", imageNum: 1 },
+            { name: "Virtual Butterfly-Purple", position: "TopMiddle", imageNum: 3 },
+            { name: "Wolf Girl-Black", position: "TopRight", imageNum: 5 },
+            { name: "Charmed Serpent-Green", position: "BotLeft", imageNum: 2 },
+            { name: "Bunny Nurse-Light Blue", position: "BotMiddle", imageNum: 4 },
+            { name: "Sea Hare-Blue", position: "BotRight", imageNum: 6 }
         ]
     },
     {
         id: 2,
         name: "Dragon Series Set 1",
-        teaserImage: "images/set-images/dragon-set-1-teaser.jpg",
-        fullsetImage: "images/set-images/dragon-set-1-fullset.jpg",
+        folderName: "dragon-set-1",
+        teaserImage: "images/set-images/dragon-set-1/dragon-set-1-teaser.jpg",
+        fullsetImage: "images/set-images/dragon-set-1/dragon-set-1-fullset.jpg",
         description: "Limited edition dragon-themed collection",
         isPopular: true,
         isNew: false,
@@ -31,19 +34,20 @@ const allSets = [
         isUndetermined: false,
         orientation: "vertical",
         characters: [
-            { name: "Azure Dragon", position: "TopLeft" },
-            { name: "Golden Dragon", position: "TopMiddle" },
-            { name: "Crimson Dragon", position: "TopRight" },
-            { name: "Emerald Dragon", position: "BotLeft" },
-            { name: "Silver Dragon", position: "BotMiddle" },
-            { name: "Ruby Dragon", position: "BotRight" }
+            { name: "Azure Dragon", position: "TopLeft", imageNum: 1 },
+            { name: "Golden Dragon", position: "TopMiddle", imageNum: 4 },
+            { name: "Crimson Dragon", position: "TopRight", imageNum: 5 },
+            { name: "Emerald Dragon", position: "MiddleLeft", imageNum: 2 },
+            { name: "Silver Dragon", position: "MiddleRight", imageNum: 6 },
+            { name: "Ruby Dragon", position: "BotLeft", imageNum: 3 }
         ]
     },
     {
         id: 3,
         name: "Celestial Beings Set",
-        teaserImage: "images/set-images/celestial-set-teaser.jpg",
-        fullsetImage: "images/set-images/celestial-set-fullset.jpg",
+        folderName: "celestial-set",
+        teaserImage: "images/set-images/celestial-set/celestial-set-teaser.jpg",
+        fullsetImage: "images/set-images/celestial-set/celestial-set-fullset.jpg",
         description: "Mythical creatures collection",
         isPopular: true,
         isNew: false,
@@ -51,19 +55,20 @@ const allSets = [
         isUndetermined: false,
         orientation: "horizontal",
         characters: [
-            { name: "Moon Guardian", position: "TopLeft" },
-            { name: "Sun Protector", position: "TopMiddle" },
-            { name: "Star Dancer", position: "TopRight" },
-            { name: "Cloud Rider", position: "BotLeft" },
-            { name: "Night Watcher", position: "BotMiddle" },
-            { name: "Dawn Keeper", position: "BotRight" }
+            { name: "Moon Guardian", position: "TopLeft", imageNum: 1 },
+            { name: "Sun Protector", position: "TopMiddle", imageNum: 3 },
+            { name: "Star Dancer", position: "TopRight", imageNum: 5 },
+            { name: "Cloud Rider", position: "BotLeft", imageNum: 2 },
+            { name: "Night Watcher", position: "BotMiddle", imageNum: 4 },
+            { name: "Dawn Keeper", position: "BotRight", imageNum: 6 }
         ]
     },
     {
         id: 4,
         name: "Ancient Legends Set",
-        teaserImage: "images/set-images/legends-set-teaser.jpg",
-        fullsetImage: "images/set-images/legends-set-fullset.jpg",
+        folderName: "legends-set",
+        teaserImage: "images/set-images/legends-set/legends-set-teaser.jpg",
+        fullsetImage: "images/set-images/legends-set/legends-set-fullset.jpg",
         description: "Historical character collection",
         isPopular: false,
         isNew: true,
@@ -71,19 +76,20 @@ const allSets = [
         isUndetermined: false,
         orientation: "vertical",
         characters: [
-            { name: "Emperor", position: "TopLeft" },
-            { name: "Empress", position: "TopMiddle" },
-            { name: "Minister", position: "TopRight" },
-            { name: "Scholar", position: "BotLeft" },
-            { name: "General", position: "BotMiddle" },
-            { name: "Advisor", position: "BotRight" }
+            { name: "Emperor", position: "TopLeft", imageNum: 1 },
+            { name: "Empress", position: "TopMiddle", imageNum: 4 },
+            { name: "Minister", position: "TopRight", imageNum: 5 },
+            { name: "Scholar", position: "MiddleLeft", imageNum: 2 },
+            { name: "General", position: "MiddleRight", imageNum: 6 },
+            { name: "Advisor", position: "BotLeft", imageNum: 3 }
         ]
     },
     {
         id: 5,
         name: "Enchanted Forest Set",
-        teaserImage: "images/set-images/forest-set-teaser.jpg",
-        fullsetImage: "images/set-images/forest-set-fullset.jpg",
+        folderName: "forest-set",
+        teaserImage: "images/set-images/forest-set/forest-set-teaser.jpg",
+        fullsetImage: "images/set-images/forest-set/forest-set-fullset.jpg",
         description: "Nature-inspired magical collection",
         isPopular: true,
         isNew: true,
@@ -91,19 +97,20 @@ const allSets = [
         isUndetermined: false,
         orientation: "horizontal",
         characters: [
-            { name: "Forest Fairy", position: "TopLeft" },
-            { name: "Tree Guardian", position: "TopMiddle" },
-            { name: "Woodland Spirit", position: "TopRight" },
-            { name: "Moss Keeper", position: "BotLeft" },
-            { name: "Flower Sprite", position: "BotMiddle" },
-            { name: "Root Maiden", position: "BotRight" }
+            { name: "Forest Fairy", position: "TopLeft", imageNum: 1 },
+            { name: "Tree Guardian", position: "TopMiddle", imageNum: 3 },
+            { name: "Woodland Spirit", position: "TopRight", imageNum: 5 },
+            { name: "Moss Keeper", position: "BotLeft", imageNum: 2 },
+            { name: "Flower Sprite", position: "BotMiddle", imageNum: 4 },
+            { name: "Root Maiden", position: "BotRight", imageNum: 6 }
         ]
     },
     {
         id: 6,
         name: "Ocean Dreams Set",
-        teaserImage: "images/set-images/ocean-set-teaser.jpg",
-        fullsetImage: "images/set-images/ocean-set-fullset.jpg",
+        folderName: "ocean-set",
+        teaserImage: "images/set-images/ocean-set/ocean-set-teaser.jpg",
+        fullsetImage: "images/set-images/ocean-set/ocean-set-fullset.jpg",
         description: "Aquatic-themed luxury collection",
         isPopular: true,
         isNew: false,
@@ -111,19 +118,20 @@ const allSets = [
         isUndetermined: false,
         orientation: "vertical",
         characters: [
-            { name: "Mermaid Princess", position: "TopLeft" },
-            { name: "Sea King", position: "TopMiddle" },
-            { name: "Pearl Maiden", position: "TopRight" },
-            { name: "Coral Guardian", position: "BotLeft" },
-            { name: "Wave Dancer", position: "BotMiddle" },
-            { name: "Depths Keeper", position: "BotRight" }
+            { name: "Mermaid Princess", position: "TopLeft", imageNum: 1 },
+            { name: "Sea King", position: "TopMiddle", imageNum: 4 },
+            { name: "Pearl Maiden", position: "TopRight", imageNum: 5 },
+            { name: "Coral Guardian", position: "MiddleLeft", imageNum: 2 },
+            { name: "Wave Dancer", position: "MiddleRight", imageNum: 6 },
+            { name: "Depths Keeper", position: "BotLeft", imageNum: 3 }
         ]
     },
     {
         id: 7,
         name: "Mystery Box Set",
-        teaserImage: "images/set-images/mystery-set-teaser.jpg",
-        fullsetImage: "images/set-images/mystery-set-fullset.jpg",
+        folderName: "mystery-set",
+        teaserImage: "images/set-images/mystery-set/mystery-set-teaser.jpg",
+        fullsetImage: "images/set-images/mystery-set/mystery-set-fullset.jpg",
         description: "There are currently no spots known for this set. It is randomly placed",
         isPopular: false,
         isNew: false,
@@ -131,19 +139,20 @@ const allSets = [
         isUndetermined: false,
         orientation: "horizontal",
         characters: [
-            { name: "Unknown 1", position: "Random" },
-            { name: "Unknown 2", position: "Random" },
-            { name: "Unknown 3", position: "Random" },
-            { name: "Unknown 4", position: "Random" },
-            { name: "Unknown 5", position: "Random" },
-            { name: "Unknown 6", position: "Random" }
+            { name: "Unknown 1", position: "Random", imageNum: 1 },
+            { name: "Unknown 2", position: "Random", imageNum: 2 },
+            { name: "Unknown 3", position: "Random", imageNum: 3 },
+            { name: "Unknown 4", position: "Random", imageNum: 4 },
+            { name: "Unknown 5", position: "Random", imageNum: 5 },
+            { name: "Unknown 6", position: "Random", imageNum: 6 }
         ]
     },
     {
         id: 8,
         name: "Undetermined Collection",
-        teaserImage: "images/set-images/undetermined-set-teaser.jpg",
-        fullsetImage: "images/set-images/undetermined-set-fullset.jpg",
+        folderName: "undetermined-set",
+        teaserImage: "images/set-images/undetermined-set/undetermined-set-teaser.jpg",
+        fullsetImage: "images/set-images/undetermined-set/undetermined-set-fullset.jpg",
         description: "Character positions are still being determined for this collection",
         isPopular: false,
         isNew: false,
@@ -151,12 +160,12 @@ const allSets = [
         isUndetermined: true,
         orientation: "horizontal",
         characters: [
-            { name: "Character 1", position: "Undetermined" },
-            { name: "Character 2", position: "Undetermined" },
-            { name: "Character 3", position: "Undetermined" },
-            { name: "Character 4", position: "Undetermined" },
-            { name: "Character 5", position: "Undetermined" },
-            { name: "Character 6", position: "Undetermined" }
+            { name: "Character 1", position: "Undetermined", imageNum: 1 },
+            { name: "Character 2", position: "Undetermined", imageNum: 2 },
+            { name: "Character 3", position: "Undetermined", imageNum: 3 },
+            { name: "Character 4", position: "Undetermined", imageNum: 4 },
+            { name: "Character 5", position: "Undetermined", imageNum: 5 },
+            { name: "Character 6", position: "Undetermined", imageNum: 6 }
         ]
     }
 ];
@@ -336,7 +345,7 @@ function createSetCard(set) {
 
     // Create character grid with orientation class
     const charactersHTML = set.characters.map(char => `
-        <div class="character-tag">
+        <div class="character-tag" data-image="images/set-images/${set.folderName}/${char.imageNum}.jpg" data-char-name="${char.name}">
             <strong>${char.name}</strong>
             <span class="position-indicator">${char.position}</span>
         </div>
@@ -379,12 +388,66 @@ function createSetCard(set) {
         </div>
     `;
 
+    // Add hover event listeners to character tags
+    const charTags = card.querySelectorAll('.character-tag');
+    charTags.forEach(tag => {
+        tag.addEventListener('mouseenter', () => showCharacterHoverPopup(tag));
+        tag.addEventListener('mouseleave', hideCharacterHoverPopup);
+    });
+
     // Add click event to open modal
     card.addEventListener('click', () => {
         openModal(set.id);
     });
 
     return card;
+}
+
+// ============================================
+// CHARACTER HOVER POPUP
+// ============================================
+
+let hoverPopup = null;
+
+function showCharacterHoverPopup(element) {
+    const imageSrc = element.getAttribute('data-image');
+    const charName = element.getAttribute('data-char-name');
+
+    // Remove existing popup
+    if (hoverPopup) {
+        hoverPopup.remove();
+    }
+
+    // Create popup
+    hoverPopup = document.createElement('div');
+    hoverPopup.className = 'character-hover-popup';
+    hoverPopup.innerHTML = `
+        <img src="${imageSrc}" alt="${charName}" onerror="this.src='https://via.placeholder.com/150x150?text=No+Image'">
+        <p>${charName}</p>
+    `;
+    document.body.appendChild(hoverPopup);
+
+    // Position popup near cursor
+    const rect = element.getBoundingClientRect();
+    hoverPopup.style.top = (rect.top - 180) + 'px';
+    hoverPopup.style.left = (rect.left - 75 + rect.width / 2) + 'px';
+
+    // Show with animation
+    setTimeout(() => {
+        hoverPopup.classList.add('visible');
+    }, 10);
+}
+
+function hideCharacterHoverPopup() {
+    if (hoverPopup) {
+        hoverPopup.classList.remove('visible');
+        setTimeout(() => {
+            if (hoverPopup) {
+                hoverPopup.remove();
+                hoverPopup = null;
+            }
+        }, 300);
+    }
 }
 
 // ============================================
@@ -436,13 +499,23 @@ function openModal(setId) {
     // Update characters list with proper orientation
     const characterList = document.getElementById('modalCharacterList');
     const orientationClass = set.orientation || 'horizontal';
-    characterList.className = `character-list ${orientationClass}`;
-    characterList.innerHTML = set.characters.map(char => `
-        <div class="character-tag">
+    
+    const modalCharactersHTML = set.characters.map(char => `
+        <div class="character-tag" data-image="images/set-images/${set.folderName}/${char.imageNum}.jpg" data-char-name="${char.name}">
             <strong>${char.name}</strong>
             <span class="position-indicator">${char.position}</span>
         </div>
     `).join('');
+    
+    characterList.className = `character-list ${orientationClass}`;
+    characterList.innerHTML = modalCharactersHTML;
+
+    // Add hover event listeners to modal character tags
+    const modalCharTags = characterList.querySelectorAll('.character-tag');
+    modalCharTags.forEach(tag => {
+        tag.addEventListener('mouseenter', () => showCharacterHoverPopup(tag));
+        tag.addEventListener('mouseleave', hideCharacterHoverPopup);
+    });
 
     // Show modal
     if (modal) {
@@ -457,5 +530,10 @@ function closeModal() {
     if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+    // Close any open hover popups
+    if (hoverPopup) {
+        hoverPopup.remove();
+        hoverPopup = null;
     }
 }
