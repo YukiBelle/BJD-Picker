@@ -120,7 +120,7 @@ const allSets = [
             { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 },
         ]
     },
-		{
+	{
         id: 7,
         name: "Light Nightmare Twins II Dream Vow",
         folderName: "DREAM-VOW",
@@ -236,8 +236,7 @@ function renderHomePageSearch(searchTerm, filteredSets) {
             allSetsSection.style.display = 'block';
         }
         if (allSetsContainer) {
-            const searchFilteredSets = filteredSets.filter(set => !set.isRandom && !set.isUndetermined);
-            renderSets(searchFilteredSets, 'allSetsContainer');
+            renderSets(filteredSets, 'allSetsContainer');
         }
     }
 }
