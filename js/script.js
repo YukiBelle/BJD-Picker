@@ -1,7 +1,7 @@
 const allSets = [
     {
         id: 1,
-        name: "Electronic Pet Game World",
+        name: "Electronic Pet Game World V2",
         folderName: "EP-GW",
         teaserImage: "images/set-images/EP-GW/teaser.jpg",
         fullsetImage: "images/set-images/EP-GW/fullset.jpg",
@@ -12,12 +12,12 @@ const allSets = [
         isUndetermined: false,
         orientation: "horizontal",
         characters: [
-            { name: "Creamy Bischon-Pink", position: "TopLeft", imageNum: 1 },
-            { name: "Virtual Butterfly-Purple", position: "TopMiddle", imageNum: 3 },
-            { name: "Wolf Girl-Black", position: "TopRight", imageNum: 5 },
-            { name: "Charmed Serpent-Green", position: "BotLeft", imageNum: 2 },
-            { name: "Bunny Nurse-Light Blue", position: "BotMiddle", imageNum: 4 },
-            { name: "Sea Hare-Blue", position: "BotRight", imageNum: 6 }
+            { name: "Creamy Bischon", position: "TopLeft", imageNum: 1 },
+            { name: "Virtual Butterfly", position: "TopMiddle", imageNum: 3 },
+            { name: "Wolf Girl", position: "TopRight", imageNum: 5 },
+            { name: "Charmed Serpent", position: "BotLeft", imageNum: 2 },
+            { name: "Bunny Nurse", position: "BotMiddle", imageNum: 4 },
+            { name: "Sea Hare", position: "BotRight", imageNum: 6 }
         ]
     },
     {
@@ -81,6 +81,27 @@ const allSets = [
             { name: "Emperor", position: "MiddleRight", imageNum: 5 },
             { name: "Hangman", position: "BotLeft", imageNum: 3 },
             { name: "Magician", position: "BotRight", imageNum: 6 }
+        ]
+    },
+	{
+        id: 1,
+        name: "Electronic Pet Game World V1",
+        folderName: "EP-GW-V1",
+        teaserImage: "images/set-images/EP-GW-V1/teaser.jpg",
+        fullsetImage: "images/set-images/EP-GW-V1/fullset.jpg",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
+        isPopular: true,
+        isNew: true,
+        isRandom: false,
+        isUndetermined: false,
+        orientation: "horizontal",
+        characters: [
+            { name: "Leopard Wave", position: "TopLeft", imageNum: 1 },
+            { name: "Seals Fantasy", position: "TopMiddle", imageNum: 3 },
+            { name: "Fierce Puppy", position: "TopRight", imageNum: 5 },
+            { name: "Scarred Violence Bunny", position: "BotLeft", imageNum: 2 },
+            { name: "Lace Cat Paradise", position: "BotMiddle", imageNum: 4 },
+            { name: "Snail Gear", position: "BotRight", imageNum: 6 }
         ]
     }
 ];
