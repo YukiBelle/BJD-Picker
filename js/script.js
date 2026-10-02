@@ -13,10 +13,10 @@ const allSets = [
         orientation: "horizontal",
         characters: [
             { name: "Creamy Bischon-Pink", position: "TopLeft", imageNum: 1 },
-            { name: "Charmed Serpent-Green", position: "BotLeft", imageNum: 2 },
             { name: "Virtual Butterfly-Purple", position: "TopMiddle", imageNum: 3 },
+			{ name: "Wolf Girl-Black", position: "TopRight", imageNum: 5 },
+			{ name: "Charmed Serpent-Green", position: "BotLeft", imageNum: 2 },
             { name: "Bunny Nurse-Light Blue", position: "BotMiddle", imageNum: 4 },
-            { name: "Wolf Girl-Black", position: "TopRight", imageNum: 5 },
             { name: "Sea Hare-Blue", position: "BotRight", imageNum: 6 }
         ]
     },
@@ -34,10 +34,10 @@ const allSets = [
         orientation: "vertical",
         characters: [
             { name: "Vivi", position: "TopLeft", imageNum: 1 },
-            { name: "Ankh", position: "MiddleLeft", imageNum: 2 },
-            { name: "Rinne", position: "BotLeft", imageNum: 3 },
             { name: "Fufu", position: "TopRight", imageNum: 4 },
+            { name: "Ankh", position: "MiddleLeft", imageNum: 2 },
             { name: "Zero", position: "MiddleRight", imageNum: 5 },
+            { name: "Rinne", position: "BotLeft", imageNum: 3 },
             { name: "Zizi", position: "BotRight", imageNum: 6 }
         ]
     },
