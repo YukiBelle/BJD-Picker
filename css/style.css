@@ -600,26 +600,8 @@ body {
 }
 
 /* Responsive Design */
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .sets-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-}
-
 @media (max-width: 768px) {
-    .nav-container {
-        justify-content: flex-start;
-    }
-
-    .logo {
-        position: static;
-        transform: none;
-        margin-right: auto;
-    }
-
     .nav-menu {
-        position: static;
         gap: 15px;
         font-size: 0.9em;
     }
@@ -727,18 +709,14 @@ body {
         height: auto;
         padding: 10px 20px;
         justify-content: flex-start;
-        position: relative;
     }
 
     .logo {
-        position: static;
-        transform: none;
         font-size: 1.4em;
         margin-right: auto;
     }
 
     .nav-menu {
-        position: static;
         width: auto;
         flex-direction: row;
         gap: 12px;
@@ -755,16 +733,16 @@ body {
         display: none;
     }
 
-    .header h1 {
-        font-size: 1.6em;
-    }
-
     .close-modal {
         font-size: 1.5em;
         right: 10px;
         top: 10px;
         width: 45px;
         height: 45px;
+    }
+	
+    .header h1 {
+        font-size: 1.6em;
     }
 
     /* Mobile: Horizontal = 3 columns 2 rows, Vertical = 2 columns */
