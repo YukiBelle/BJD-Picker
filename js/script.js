@@ -337,8 +337,18 @@ function renderHomePageSearch(searchTerm, filteredSets) {
 // ============================================
 
 function loadPopularSetsHome() {
-    const allDisplaySets = allSets.filter(set => !set.isRandom && !set.isUndetermined);
+    const allDisplaySets = allSets
+        .filter(set => !set.isRandom && !set.isUndetermined)
+        .sort((a, b) => getHomePriority(b) - getHomePriority(a));
+
     renderSets(allDisplaySets, 'popularSetsContainer');
+}
+
+function getHomePriority(set) {
+    if (set.isNew && set.isPopular) return 4;
+    if (set.isNew) return 3;
+    if (set.isPopular) return 2;
+    return 1;
 }
 
 function loadNewSets() {
