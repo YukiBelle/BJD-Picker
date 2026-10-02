@@ -451,12 +451,21 @@ body {
     font-weight: bold;
     color: #999;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     line-height: 1;
+    background: rgba(255, 255, 255, 0.9);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
 }
 
 .close-modal:hover {
     color: #333;
+    background: white;
 }
 
 .modal-body {
@@ -727,6 +736,14 @@ body {
         display: none;
     }
 
+    .close-modal {
+        font-size: 1.5em;
+        right: 10px;
+        top: 10px;
+        width: 45px;
+        height: 45px;
+    }
+	
     .header h1 {
         font-size: 1.6em;
     }
