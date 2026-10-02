@@ -217,7 +217,10 @@ body {
 
 .new-badge {
     background: #4ecdc4;
-    margin-right: 8px;
+    position: absolute;
+    right: 110px;
+    top: 10px;
+    margin-right: 0;
 }
 
 /* Set Info */

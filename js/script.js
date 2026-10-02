@@ -1,10 +1,9 @@
-// Sample data - replace with your actual sets
 const allSets = [
     {
         id: 1,
         name: "Electronic Pet Game World",
         teaserImage: "images/set-images/EP-GW-teaser.png",
-        fullsetImage: "images/set-images/EP-GW-fullset.png",
+        fullsetImage: "images/set-images/EP-GW-fullset.jpg",
         description: "A vibrant collection of digital-inspired BJD characters",
         isPopular: true,
         isNew: true,
@@ -19,16 +18,16 @@ const allSets = [
     },
     {
         id: 2,
-        name: "Dragon Series Set 1",
+        name: "Twinkle Polaris",
         teaserImage: "images/set-images/dragon-set-1-teaser.png",
         fullsetImage: "images/set-images/dragon-set-1-fullset.png",
         description: "Limited edition dragon-themed collection",
         isPopular: true,
-        isNew: false,
+        isNew: true,
         characters: [
             { name: "Azure Dragon", position: "TopLeft" },
             { name: "Golden Dragon", position: "TopMiddle" },
-            { name: "Crimson Dragon", position: "TopRight" },
+            { name: "Yuni", position: "TopRight" },
             { name: "Emerald Dragon", position: "BotLeft" },
             { name: "Silver Dragon", position: "BotMiddle" },
             { name: "Ruby Dragon", position: "BotRight" }
@@ -285,13 +284,17 @@ function createSetCard(set) {
         </div>
     `).join('');
 
-    let badgeHTML = '';
+let badgeHTML = '';
+if (set.isPopular || set.isNew) {
+    badgeHTML = '<div class="badge-container">';
     if (set.isPopular) {
         badgeHTML += '<span class="popular-badge">Popular</span>';
     }
     if (set.isNew) {
         badgeHTML += '<span class="popular-badge new-badge">New</span>';
     }
+    badgeHTML += '</div>';
+}
 
     card.innerHTML = `
         <div class="set-image-container">
