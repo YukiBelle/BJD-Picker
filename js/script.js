@@ -2,7 +2,7 @@ const allSets = [
     {
         id: 1,
         name: "Electronic Pet Game World",
-        teaserImage: "images/set-images/EP-GW-teaser.png",
+        teaserImage: "images/set-images/EP-GW-teaser.jpg",
         fullsetImage: "images/set-images/EP-GW-fullset.jpg",
         description: "A vibrant collection of digital-inspired BJD characters",
         isPopular: true,
