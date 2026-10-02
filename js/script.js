@@ -151,6 +151,27 @@ const allSets = [
         characters: [
             { name: "Random - Data shows predictions unreliable", position: "?", imageNum: 1 }
         ]
+    },
+    {
+        id: 9,
+        name: "Boxed Furry",
+        folderName: "BOXED-FURRY",
+        teaserImage: "images/set-images/BOXED-FURRY/teaser.jpg",
+        fullsetImage: "images/set-images/BOXED-FURRY/fullset.jpg",
+        description: "<Data for this set is still in process! Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
+        isPopular: false,
+        isNew: false,
+        isRandom: false,
+        isUndetermined: false,
+        orientation: "vertical",
+        characters: [
+            { name: "Sailor/Sinic?", position: "TopLeft", imageNum: 1 },
+            { name: "Orange", position: "TopRight", imageNum: 4 },
+            { name: "Sailor/Sinic?", position: "MiddleLeft", imageNum: 2 },
+            { name: "Chef", position: "MiddleRight", imageNum: 5 },
+            { name: "Coffee", position: "BotLeft", imageNum: 3 },
+            { name: "Winter", position: "BotRight", imageNum: 6 }
+        ]
     }
 ];
 
@@ -479,7 +500,7 @@ function openModal(setId) {
     };
 
     document.getElementById('modalTitle').textContent = set.name;
-    document.getElementById('modalDescription').textContent = set.description;
+    document.getElementById('modalDescription').innerHTML = set.description;
 
     const characterList = document.getElementById('modalCharacterList');
     const orientationClass = set.orientation || 'horizontal';
