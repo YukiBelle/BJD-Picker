@@ -149,7 +149,7 @@ const allSets = [
         isUndetermined: false,
         orientation: "vertical",
         characters: [
-            { name: "Undetermined - Need more data", position: "?", imageNum: 1 }
+            { name: "Random - Data shows predictions unreliable", position: "?", imageNum: 1 }
         ]
     }
 ];
