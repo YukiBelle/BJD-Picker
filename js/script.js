@@ -116,6 +116,9 @@ const allSets = [
         isRandom: false,
         isUndetermined: true,
         orientation: "vertical",
+        characters: [
+            { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 },
+        ]
     }
 		{
         id: 7,
@@ -129,6 +132,9 @@ const allSets = [
         isRandom: false,
         isUndetermined: true,
         orientation: "horizontal",
+        characters: [
+            { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 },
+        ]
     }
 ];
 
