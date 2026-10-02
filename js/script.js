@@ -84,14 +84,14 @@ const allSets = [
         ]
     },
 	{
-        id: 1,
+        id: 5,
         name: "Electronic Pet Game World V1",
         folderName: "EP-GW-V1",
         teaserImage: "images/set-images/EP-GW-V1/teaser.jpg",
         fullsetImage: "images/set-images/EP-GW-V1/fullset.jpg",
         description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
-        isPopular: true,
-        isNew: true,
+        isPopular: false,
+        isNew: false,
         isRandom: false,
         isUndetermined: false,
         orientation: "horizontal",
@@ -103,6 +103,32 @@ const allSets = [
             { name: "Lace Cat Paradise", position: "BotMiddle", imageNum: 4 },
             { name: "Snail Gear", position: "BotRight", imageNum: 6 }
         ]
+    },
+	{
+        id: 6,
+        name: "Twinkle Polaris",
+        folderName: "TWINKLE-POLARIS",
+        teaserImage: "images/set-images/EP-GW-V1/teaser.jpg",
+        fullsetImage: "images/set-images/EP-GW-V1/fullset.jpg",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
+        isPopular: false,
+        isNew: false,
+        isRandom: false,
+        isUndetermined: true,
+        orientation: "vertical",
+    }
+		{
+        id: 7,
+        name: "Light Nightmare Twins II Dream Vow",
+        folderName: "DREAM-VOW",
+        teaserImage: "images/set-images/DREAM-VOW/teaser.jpg",
+        fullsetImage: "images/set-images/DREAM-VOW/fullset.jpg",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
+        isPopular: false,
+        isNew: false,
+        isRandom: false,
+        isUndetermined: true,
+        orientation: "horizontal",
     }
 ];
 
