@@ -119,7 +119,7 @@ const allSets = [
         characters: [
             { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 },
         ]
-    }
+    },
 		{
         id: 7,
         name: "Light Nightmare Twins II Dream Vow",
