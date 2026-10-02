@@ -108,8 +108,8 @@ const allSets = [
         id: 6,
         name: "Twinkle Polaris",
         folderName: "TWINKLE-POLARIS",
-        teaserImage: "images/set-images/EP-GW-V1/teaser.jpg",
-        fullsetImage: "images/set-images/EP-GW-V1/fullset.jpg",
+        teaserImage: "images/set-images/TWINKLE-POLARIS/teaser.jpg",
+        fullsetImage: "images/set-images/TWINKLE-POLARIS/fullset.jpg",
         description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
         isPopular: false,
         isNew: false,
@@ -122,7 +122,7 @@ const allSets = [
     },
     {
         id: 7,
-        name: "Light Nightmare Twins II Dream Vow",
+        name: "Angel & Demon - Light Nightmare Twins II Dream Vow",
         folderName: "DREAM-VOW",
         teaserImage: "images/set-images/DREAM-VOW/teaser.jpg",
         fullsetImage: "images/set-images/DREAM-VOW/fullset.jpg",
@@ -131,6 +131,22 @@ const allSets = [
         isNew: false,
         isRandom: false,
         isUndetermined: true,
+        orientation: "horizontal",
+        characters: [
+            { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 }
+        ]
+    },
+    {
+        id: 8,
+        name: "Light & Shadow Lightwing Academy",
+        folderName: "L&S",
+        teaserImage: "images/set-images/L&S/teaser.jpg",
+        fullsetImage: "images/set-images/L&S/fullset.jpg",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
+        isPopular: false,
+        isNew: false,
+        isRandom: true,
+        isUndetermined: false,
         orientation: "horizontal",
         characters: [
             { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 }
