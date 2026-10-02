@@ -83,7 +83,7 @@ const allSets = [
             { name: "Magician", position: "BotRight", imageNum: 6 }
         ]
     },
-	{
+    {
         id: 5,
         name: "Electronic Pet Game World V1",
         folderName: "EP-GW-V1",
@@ -104,7 +104,7 @@ const allSets = [
             { name: "Snail Gear", position: "BotRight", imageNum: 6 }
         ]
     },
-	{
+    {
         id: 6,
         name: "Twinkle Polaris",
         folderName: "TWINKLE-POLARIS",
@@ -117,10 +117,10 @@ const allSets = [
         isUndetermined: true,
         orientation: "vertical",
         characters: [
-            { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 },
+            { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 }
         ]
     },
-	{
+    {
         id: 7,
         name: "Light Nightmare Twins II Dream Vow",
         folderName: "DREAM-VOW",
@@ -133,22 +133,17 @@ const allSets = [
         isUndetermined: true,
         orientation: "horizontal",
         characters: [
-            { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 },
+            { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 }
         ]
     }
 ];
 
-let filteredSets = [...allSets];
-const searchInput = document.getElementById('searchInput');
-const clearBtn = document.getElementById('clearBtn');
-const resultsInfo = document.getElementById('search-results-info');
-
 document.addEventListener('DOMContentLoaded', () => {
     initializeModal();
     initializeSearch();
-    
-    const currentPage = window.location.pathname;
-    
+
+    const currentPage = window.location.pathname.toLowerCase();
+
     if (currentPage.includes('index.html') || currentPage.endsWith('/')) {
         loadPopularSetsHome();
     }
@@ -170,35 +165,34 @@ function initializeSearch() {
 
     if (clearBtn) {
         clearBtn.addEventListener('click', () => {
-            if (searchInput) {
-                searchInput.value = '';
-                handleSearch('');
-                searchInput.focus();
-            }
+            searchInput.value = '';
+            handleSearch('');
+            searchInput.focus();
         });
     }
 }
 
 function handleSearch(searchTerm) {
-    searchTerm = searchTerm.toLowerCase().trim();
+    const normalizedSearch = searchTerm.toLowerCase().trim();
     const resultsInfo = document.getElementById('search-results-info');
-    const currentPage = window.location.pathname;
+    const currentPage = window.location.pathname.toLowerCase();
 
     let filteredSets = allSets;
-    
-    if (searchTerm !== '') {
+
+    if (normalizedSearch !== '') {
         filteredSets = allSets.filter(set => {
-            const matchesName = set.name.toLowerCase().includes(searchTerm);
-            const matchesDescription = set.description.toLowerCase().includes(searchTerm);
-            const matchesCharacter = set.characters.some(char => 
-                char.name.toLowerCase().includes(searchTerm)
+            const matchesName = set.name.toLowerCase().includes(normalizedSearch);
+            const matchesDescription = set.description.toLowerCase().includes(normalizedSearch);
+            const matchesCharacter = set.characters.some(char =>
+                char.name.toLowerCase().includes(normalizedSearch)
             );
+
             return matchesName || matchesDescription || matchesCharacter;
         });
     }
 
     if (resultsInfo) {
-        if (searchTerm === '') {
+        if (normalizedSearch === '') {
             resultsInfo.textContent = '';
         } else {
             resultsInfo.textContent = `Found ${filteredSets.length} set(s)`;
@@ -206,28 +200,32 @@ function handleSearch(searchTerm) {
     }
 
     if (currentPage.includes('index.html') || currentPage.endsWith('/')) {
-        renderHomePageSearch(searchTerm, filteredSets);
+        renderHomePageSearch(normalizedSearch, filteredSets);
     } else if (currentPage.includes('new.html')) {
-        filteredSets = filteredSets.filter(set => set.isNew);
-        renderSets(filteredSets, 'newSetsContainer');
+        const newFilteredSets = normalizedSearch === ''
+            ? allSets.filter(set => set.isNew && !set.isRandom && !set.isUndetermined)
+            : filteredSets.filter(set => set.isNew);
+        renderSets(newFilteredSets, 'newSetsContainer');
     } else if (currentPage.includes('popular.html')) {
-        filteredSets = filteredSets.filter(set => set.isPopular);
-        renderSets(filteredSets, 'popularSetsContainer');
+        const popularFilteredSets = normalizedSearch === ''
+            ? allSets.filter(set => set.isPopular && !set.isRandom && !set.isUndetermined)
+            : filteredSets.filter(set => set.isPopular);
+        renderSets(popularFilteredSets, 'popularSetsContainer');
     }
 }
 
 function renderHomePageSearch(searchTerm, filteredSets) {
     const popularContainer = document.getElementById('popularSetsContainer');
     const allSetsSection = document.getElementById('allSetsSection');
-    const allSetsContainer = document.getElementById('allSetsContainer');
 
     if (searchTerm === '') {
         if (popularContainer) {
-            loadPopularSetsHome();
+            popularContainer.parentElement.style.display = 'block';
         }
         if (allSetsSection) {
             allSetsSection.style.display = 'none';
         }
+        loadPopularSetsHome();
     } else {
         if (popularContainer) {
             popularContainer.parentElement.style.display = 'none';
@@ -235,9 +233,11 @@ function renderHomePageSearch(searchTerm, filteredSets) {
         if (allSetsSection) {
             allSetsSection.style.display = 'block';
         }
-        if (allSetsContainer) {
-            renderSets(filteredSets, 'allSetsContainer');
-        }
+
+        // IMPORTANT:
+        // On the index page, search should show ALL matching sets,
+        // including random and undetermined.
+        renderSets(filteredSets, 'allSetsContainer');
     }
 }
 
@@ -246,13 +246,9 @@ function renderHomePageSearch(searchTerm, filteredSets) {
 // ============================================
 
 function loadPopularSetsHome() {
+    // Default home page should HIDE random and undetermined
     const allDisplaySets = allSets.filter(set => !set.isRandom && !set.isUndetermined);
-    const container = document.getElementById('popularSetsContainer');
-    
-    if (container) {
-        container.parentElement.style.display = 'block';
-        renderSets(allDisplaySets, 'popularSetsContainer');
-    }
+    renderSets(allDisplaySets, 'popularSetsContainer');
 }
 
 function loadNewSets() {
@@ -271,7 +267,7 @@ function loadPopularSets() {
 
 function renderSets(setsToRender, containerId) {
     const container = document.getElementById(containerId);
-    
+
     if (!container) return;
 
     container.innerHTML = '';
@@ -332,7 +328,7 @@ function createSetCard(set) {
             <div class="set-name">${set.name}</div>
             <div class="set-details">${set.description}</div>
             <div class="characters-section">
-                <div class="characters-label">Characters (6):</div>
+                <div class="characters-label">Characters (${set.characters.length}):</div>
                 <div class="character-list ${orientationClass}">
                     ${charactersHTML}
                 </div>
@@ -349,6 +345,7 @@ function createSetCard(set) {
             const folderName = tag.getAttribute('data-set-folder');
             const imageNum = tag.getAttribute('data-image-num');
             const imageSrc = `images/set-images/${folderName}/${imageNum}.jpg`;
+
             mainImage.src = imageSrc;
             mainImage.onerror = function() {
                 this.src = 'https://via.placeholder.com/300x250?text=No+Image';
@@ -404,9 +401,9 @@ function openModal(setId) {
     if (!set) return;
 
     const modal = document.getElementById('setModal');
-    
     const modalImage = document.getElementById('modalImage');
     const originalSrc = set.fullsetImage;
+
     modalImage.src = originalSrc;
     modalImage.style.objectFit = 'cover';
     modalImage.onerror = function() {
@@ -418,14 +415,14 @@ function openModal(setId) {
 
     const characterList = document.getElementById('modalCharacterList');
     const orientationClass = set.orientation || 'horizontal';
-    
+
     const modalCharactersHTML = set.characters.map(char => `
         <div class="character-tag" data-set-folder="${set.folderName}" data-image-num="${char.imageNum}" data-char-name="${char.name}">
             <strong>${char.name}</strong>
             <span class="position-indicator">${char.position}</span>
         </div>
     `).join('');
-    
+
     characterList.className = `character-list ${orientationClass}`;
     characterList.innerHTML = modalCharactersHTML;
 
@@ -436,6 +433,7 @@ function openModal(setId) {
             const folderName = tag.getAttribute('data-set-folder');
             const imageNum = tag.getAttribute('data-image-num');
             const imageSrc = `images/set-images/${folderName}/${imageNum}.jpg`;
+
             modalImage.src = imageSrc;
             modalImage.style.objectFit = 'cover';
             modalImage.onerror = function() {
