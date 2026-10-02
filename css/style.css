@@ -462,10 +462,9 @@ body {
 
 .modal-content {
     background-color: white;
-    padding: 40px;
+    padding: 50px;
     border-radius: 20px;
-    max-width: 1200px;
-    width: 95%;
+    width: min(96vw, 1250px);
     max-height: 92vh;
     overflow-y: auto;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -475,17 +474,17 @@ body {
 
 .close-modal {
     position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 2em;
+    right: 24px;
+    top: 24px;
+    font-size: 2.2em;
     font-weight: bold;
     color: #999;
     cursor: pointer;
     transition: all 0.3s ease;
     line-height: 1;
-    background: rgba(255, 255, 255, 0.9);
-    width: 40px;
-    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -500,14 +499,14 @@ body {
 
 .modal-body {
     display: grid;
-    grid-template-columns: 550px 1fr;
-    gap: 40px;
+    grid-template-columns: minmax(620px, 1.15fr) minmax(420px, 0.85fr);
+    gap: 45px;
     align-items: start;
 }
 
 .modal-image-container {
-    width: 550px;
-    height: 550px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 15px;
     overflow: hidden;
     background: #f5f5f5;
@@ -527,21 +526,23 @@ body {
 .modal-info {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
+    min-width: 0;
 }
 
 .modal-info h2 {
-    font-size: 2em;
+    font-size: 2.4em;
     color: #333;
     margin: 0;
     border-bottom: 3px solid #667eea;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+    line-height: 1.2;
 }
 
 .modal-info p {
-    font-size: 1.05em;
+    font-size: 1.12em;
     color: #666;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .modal-characters {
