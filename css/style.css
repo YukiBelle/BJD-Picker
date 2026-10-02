@@ -201,11 +201,18 @@ body {
     transform: scale(1.05);
 }
 
-/* Popular Badge */
-.popular-badge {
+/* Badge Container */
+.badge-container {
     position: absolute;
     top: 10px;
     right: 10px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+/* Popular Badge */
+.popular-badge {
     background: #ff6b6b;
     color: white;
     padding: 6px 12px;
@@ -217,10 +224,6 @@ body {
 
 .new-badge {
     background: #4ecdc4;
-    position: absolute;
-    right: 110px;
-    top: 10px;
-    margin-right: 0;
 }
 
 /* Set Info */
