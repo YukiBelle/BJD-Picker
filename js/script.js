@@ -1,4 +1,3 @@
-// Sample data - replace with your actual sets
 const allSets = [
     {
         id: 1,
@@ -25,8 +24,8 @@ const allSets = [
         id: 2,
         name: "Dragon Series Set 1",
         folderName: "dragon-set-1",
-        teaserImage: "images/set-images/dragon-set-1/dragon-set-1-teaser.jpg",
-        fullsetImage: "images/set-images/dragon-set-1/dragon-set-1-fullset.jpg",
+        teaserImage: "images/set-images/dragon-set-1/teaser.jpg",
+        fullsetImage: "images/set-images/dragon-set-1/fullset.jpg",
         description: "Limited edition dragon-themed collection",
         isPopular: true,
         isNew: false,
@@ -46,8 +45,8 @@ const allSets = [
         id: 3,
         name: "Celestial Beings Set",
         folderName: "celestial-set",
-        teaserImage: "images/set-images/celestial-set/celestial-set-teaser.jpg",
-        fullsetImage: "images/set-images/celestial-set/celestial-set-fullset.jpg",
+        teaserImage: "images/set-images/celestial-set/teaser.jpg",
+        fullsetImage: "images/set-images/celestial-set/fullset.jpg",
         description: "Mythical creatures collection",
         isPopular: true,
         isNew: false,
@@ -67,8 +66,8 @@ const allSets = [
         id: 4,
         name: "Ancient Legends Set",
         folderName: "legends-set",
-        teaserImage: "images/set-images/legends-set/legends-set-teaser.jpg",
-        fullsetImage: "images/set-images/legends-set/legends-set-fullset.jpg",
+        teaserImage: "images/set-images/legends-set/teaser.jpg",
+        fullsetImage: "images/set-images/legends-set/fullset.jpg",
         description: "Historical character collection",
         isPopular: false,
         isNew: true,
@@ -88,8 +87,8 @@ const allSets = [
         id: 5,
         name: "Enchanted Forest Set",
         folderName: "forest-set",
-        teaserImage: "images/set-images/forest-set/forest-set-teaser.jpg",
-        fullsetImage: "images/set-images/forest-set/forest-set-fullset.jpg",
+        teaserImage: "images/set-images/forest-set/teaser.jpg",
+        fullsetImage: "images/set-images/forest-set/fullset.jpg",
         description: "Nature-inspired magical collection",
         isPopular: true,
         isNew: true,
@@ -109,8 +108,8 @@ const allSets = [
         id: 6,
         name: "Ocean Dreams Set",
         folderName: "ocean-set",
-        teaserImage: "images/set-images/ocean-set/ocean-set-teaser.jpg",
-        fullsetImage: "images/set-images/ocean-set/ocean-set-fullset.jpg",
+        teaserImage: "images/set-images/ocean-set/teaser.jpg",
+        fullsetImage: "images/set-images/ocean-set/fullset.jpg",
         description: "Aquatic-themed luxury collection",
         isPopular: true,
         isNew: false,
@@ -130,8 +129,8 @@ const allSets = [
         id: 7,
         name: "Mystery Box Set",
         folderName: "mystery-set",
-        teaserImage: "images/set-images/mystery-set/mystery-set-teaser.jpg",
-        fullsetImage: "images/set-images/mystery-set/mystery-set-fullset.jpg",
+        teaserImage: "images/set-images/mystery-set/teaser.jpg",
+        fullsetImage: "images/set-images/mystery-set/fullset.jpg",
         description: "There are currently no spots known for this set. It is randomly placed",
         isPopular: false,
         isNew: false,
@@ -151,8 +150,8 @@ const allSets = [
         id: 8,
         name: "Undetermined Collection",
         folderName: "undetermined-set",
-        teaserImage: "images/set-images/undetermined-set/undetermined-set-teaser.jpg",
-        fullsetImage: "images/set-images/undetermined-set/undetermined-set-fullset.jpg",
+        teaserImage: "images/set-images/undetermined-set/teaser.jpg",
+        fullsetImage: "images/set-images/undetermined-set/fullset.jpg",
         description: "Character positions are still being determined for this collection",
         isPopular: false,
         isNew: false,
@@ -390,9 +389,24 @@ function createSetCard(set) {
 
     // Add hover event listeners to character tags
     const charTags = card.querySelectorAll('.character-tag');
+    const mainImage = card.querySelector('.set-image-container img');
+    const originalSrc = mainImage.src;
+
     charTags.forEach(tag => {
-        tag.addEventListener('mouseenter', () => showCharacterHoverPopup(tag));
-        tag.addEventListener('mouseleave', hideCharacterHoverPopup);
+        tag.addEventListener('mouseenter', () => {
+            const imageSrc = tag.getAttribute('data-image');
+            mainImage.src = imageSrc;
+            mainImage.onerror = function() {
+                this.src = 'https://via.placeholder.com/300x250?text=No+Image';
+            };
+        });
+
+        tag.addEventListener('mouseleave', () => {
+            mainImage.src = originalSrc;
+            mainImage.onerror = function() {
+                this.src = 'https://via.placeholder.com/300x250?text=BJD+Set';
+            };
+        });
     });
 
     // Add click event to open modal
@@ -401,53 +415,6 @@ function createSetCard(set) {
     });
 
     return card;
-}
-
-// ============================================
-// CHARACTER HOVER POPUP
-// ============================================
-
-let hoverPopup = null;
-
-function showCharacterHoverPopup(element) {
-    const imageSrc = element.getAttribute('data-image');
-    const charName = element.getAttribute('data-char-name');
-
-    // Remove existing popup
-    if (hoverPopup) {
-        hoverPopup.remove();
-    }
-
-    // Create popup
-    hoverPopup = document.createElement('div');
-    hoverPopup.className = 'character-hover-popup';
-    hoverPopup.innerHTML = `
-        <img src="${imageSrc}" alt="${charName}" onerror="this.src='https://via.placeholder.com/150x150?text=No+Image'">
-        <p>${charName}</p>
-    `;
-    document.body.appendChild(hoverPopup);
-
-    // Position popup near cursor
-    const rect = element.getBoundingClientRect();
-    hoverPopup.style.top = (rect.top - 180) + 'px';
-    hoverPopup.style.left = (rect.left - 75 + rect.width / 2) + 'px';
-
-    // Show with animation
-    setTimeout(() => {
-        hoverPopup.classList.add('visible');
-    }, 10);
-}
-
-function hideCharacterHoverPopup() {
-    if (hoverPopup) {
-        hoverPopup.classList.remove('visible');
-        setTimeout(() => {
-            if (hoverPopup) {
-                hoverPopup.remove();
-                hoverPopup = null;
-            }
-        }, 300);
-    }
 }
 
 // ============================================
@@ -489,10 +456,12 @@ function openModal(setId) {
     const modal = document.getElementById('setModal');
     
     // Update modal content
-    document.getElementById('modalImage').src = set.fullsetImage;
-    document.getElementById('modalImage').onerror = function() {
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = set.fullsetImage;
+    modalImage.onerror = function() {
         this.src = 'https://via.placeholder.com/600x600?text=Full+Set+Image';
     };
+
     document.getElementById('modalTitle').textContent = set.name;
     document.getElementById('modalDescription').textContent = set.description;
 
@@ -512,9 +481,23 @@ function openModal(setId) {
 
     // Add hover event listeners to modal character tags
     const modalCharTags = characterList.querySelectorAll('.character-tag');
+    const originalModalImage = set.fullsetImage;
+
     modalCharTags.forEach(tag => {
-        tag.addEventListener('mouseenter', () => showCharacterHoverPopup(tag));
-        tag.addEventListener('mouseleave', hideCharacterHoverPopup);
+        tag.addEventListener('mouseenter', () => {
+            const imageSrc = tag.getAttribute('data-image');
+            modalImage.src = imageSrc;
+            modalImage.onerror = function() {
+                this.src = 'https://via.placeholder.com/600x600?text=No+Image';
+            };
+        });
+
+        tag.addEventListener('mouseleave', () => {
+            modalImage.src = originalModalImage;
+            modalImage.onerror = function() {
+                this.src = 'https://via.placeholder.com/600x600?text=Full+Set+Image';
+            };
+        });
     });
 
     // Show modal
@@ -530,10 +513,5 @@ function closeModal() {
     if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto'; // Re-enable scrolling
-    }
-    // Close any open hover popups
-    if (hoverPopup) {
-        hoverPopup.remove();
-        hoverPopup = null;
     }
 }
