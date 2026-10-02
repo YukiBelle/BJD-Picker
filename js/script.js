@@ -13,10 +13,10 @@ const allSets = [
         orientation: "horizontal",
         characters: [
             { name: "Creamy Bischon-Pink", position: "TopLeft", imageNum: 1 },
+            { name: "Charmed Serpent-Green", position: "BotLeft", imageNum: 2 },
             { name: "Virtual Butterfly-Purple", position: "TopMiddle", imageNum: 3 },
-			{ name: "Wolf Girl-Black", position: "TopRight", imageNum: 5 },
-			{ name: "Charmed Serpent-Green", position: "BotLeft", imageNum: 2 },
             { name: "Bunny Nurse-Light Blue", position: "BotMiddle", imageNum: 4 },
+            { name: "Wolf Girl-Black", position: "TopRight", imageNum: 5 },
             { name: "Sea Hare-Blue", position: "BotRight", imageNum: 6 }
         ]
     },
@@ -39,132 +39,6 @@ const allSets = [
             { name: "Zero", position: "MiddleRight", imageNum: 5 },
             { name: "Rinne", position: "BotLeft", imageNum: 3 },
             { name: "Zizi", position: "BotRight", imageNum: 6 }
-        ]
-    },
-    {
-        id: 3,
-        name: "Celestial Beings Set",
-        folderName: "celestial-set",
-        teaserImage: "images/set-images/celestial-set/teaser.jpg",
-        fullsetImage: "images/set-images/celestial-set/fullset.jpg",
-        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
-        isPopular: true,
-        isNew: false,
-        isRandom: false,
-        isUndetermined: false,
-        orientation: "horizontal",
-        characters: [
-            { name: "Moon Guardian", position: "TopLeft", imageNum: 1 },
-            { name: "Sun Protector", position: "TopMiddle", imageNum: 3 },
-            { name: "Star Dancer", position: "TopRight", imageNum: 5 },
-            { name: "Cloud Rider", position: "BotLeft", imageNum: 2 },
-            { name: "Night Watcher", position: "BotMiddle", imageNum: 4 },
-            { name: "Dawn Keeper", position: "BotRight", imageNum: 6 }
-        ]
-    },
-    {
-        id: 4,
-        name: "Ancient Legends Set",
-        folderName: "legends-set",
-        teaserImage: "images/set-images/legends-set/teaser.jpg",
-        fullsetImage: "images/set-images/legends-set/fullset.jpg",
-        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
-        isPopular: false,
-        isNew: true,
-        isRandom: false,
-        isUndetermined: false,
-        orientation: "vertical",
-        characters: [
-            { name: "Emperor", position: "TopLeft", imageNum: 1 },
-            { name: "Empress", position: "TopMiddle", imageNum: 4 },
-            { name: "Minister", position: "TopRight", imageNum: 5 },
-            { name: "Scholar", position: "MiddleLeft", imageNum: 2 },
-            { name: "General", position: "MiddleRight", imageNum: 6 },
-            { name: "Advisor", position: "BotLeft", imageNum: 3 }
-        ]
-    },
-    {
-        id: 5,
-        name: "Enchanted Forest Set",
-        folderName: "forest-set",
-        teaserImage: "images/set-images/forest-set/teaser.jpg",
-        fullsetImage: "images/set-images/forest-set/fullset.jpg",
-        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
-        isPopular: true,
-        isNew: true,
-        isRandom: false,
-        isUndetermined: false,
-        orientation: "horizontal",
-        characters: [
-            { name: "Forest Fairy", position: "TopLeft", imageNum: 1 },
-            { name: "Tree Guardian", position: "TopMiddle", imageNum: 3 },
-            { name: "Woodland Spirit", position: "TopRight", imageNum: 5 },
-            { name: "Moss Keeper", position: "BotLeft", imageNum: 2 },
-            { name: "Flower Sprite", position: "BotMiddle", imageNum: 4 },
-            { name: "Root Maiden", position: "BotRight", imageNum: 6 }
-        ]
-    },
-    {
-        id: 6,
-        name: "Ocean Dreams Set",
-        folderName: "ocean-set",
-        teaserImage: "images/set-images/ocean-set/teaser.jpg",
-        fullsetImage: "images/set-images/ocean-set/fullset.jpg",
-        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
-        isPopular: true,
-        isNew: false,
-        isRandom: false,
-        isUndetermined: false,
-        orientation: "vertical",
-        characters: [
-            { name: "Mermaid Princess", position: "TopLeft", imageNum: 1 },
-            { name: "Sea King", position: "TopMiddle", imageNum: 4 },
-            { name: "Pearl Maiden", position: "TopRight", imageNum: 5 },
-            { name: "Coral Guardian", position: "MiddleLeft", imageNum: 2 },
-            { name: "Wave Dancer", position: "MiddleRight", imageNum: 6 },
-            { name: "Depths Keeper", position: "BotLeft", imageNum: 3 }
-        ]
-    },
-    {
-        id: 7,
-        name: "Mystery Box Set",
-        folderName: "mystery-set",
-        teaserImage: "images/set-images/mystery-set/teaser.jpg",
-        fullsetImage: "images/set-images/mystery-set/fullset.jpg",
-        description: "There are currently no spots known for this set. It is randomly placed",
-        isPopular: false,
-        isNew: false,
-        isRandom: true,
-        isUndetermined: false,
-        orientation: "horizontal",
-        characters: [
-            { name: "Unknown 1", position: "Random", imageNum: 1 },
-            { name: "Unknown 2", position: "Random", imageNum: 2 },
-            { name: "Unknown 3", position: "Random", imageNum: 3 },
-            { name: "Unknown 4", position: "Random", imageNum: 4 },
-            { name: "Unknown 5", position: "Random", imageNum: 5 },
-            { name: "Unknown 6", position: "Random", imageNum: 6 }
-        ]
-    },
-    {
-        id: 8,
-        name: "Undetermined Collection",
-        folderName: "undetermined-set",
-        teaserImage: "images/set-images/undetermined-set/teaser.jpg",
-        fullsetImage: "images/set-images/undetermined-set/fullset.jpg",
-        description: "Character positions are still being determined for this collection",
-        isPopular: false,
-        isNew: false,
-        isRandom: false,
-        isUndetermined: true,
-        orientation: "horizontal",
-        characters: [
-            { name: "Character 1", position: "Undetermined", imageNum: 1 },
-            { name: "Character 2", position: "Undetermined", imageNum: 2 },
-            { name: "Character 3", position: "Undetermined", imageNum: 3 },
-            { name: "Character 4", position: "Undetermined", imageNum: 4 },
-            { name: "Character 5", position: "Undetermined", imageNum: 5 },
-            { name: "Character 6", position: "Undetermined", imageNum: 6 }
         ]
     }
 ];
@@ -437,7 +311,9 @@ function openModal(setId) {
     const modal = document.getElementById('setModal');
     
     const modalImage = document.getElementById('modalImage');
-    modalImage.src = set.fullsetImage;
+    const originalSrc = set.fullsetImage;
+    modalImage.src = originalSrc;
+    modalImage.style.objectFit = 'cover';
     modalImage.onerror = function() {
         this.src = 'https://via.placeholder.com/600x600?text=Full+Set+Image';
     };
@@ -459,7 +335,6 @@ function openModal(setId) {
     characterList.innerHTML = modalCharactersHTML;
 
     const modalCharTags = characterList.querySelectorAll('.character-tag');
-    const originalModalImage = set.fullsetImage;
 
     modalCharTags.forEach(tag => {
         tag.addEventListener('mouseenter', () => {
@@ -467,13 +342,15 @@ function openModal(setId) {
             const imageNum = tag.getAttribute('data-image-num');
             const imageSrc = `images/set-images/${folderName}/${imageNum}.jpg`;
             modalImage.src = imageSrc;
+            modalImage.style.objectFit = 'cover';
             modalImage.onerror = function() {
-                this.src = 'https://via.placeholder.com/600x600?text=No+Image';
+                this.src = originalSrc;
             };
         });
 
         tag.addEventListener('mouseleave', () => {
-            modalImage.src = originalModalImage;
+            modalImage.src = originalSrc;
+            modalImage.style.objectFit = 'cover';
             modalImage.onerror = function() {
                 this.src = 'https://via.placeholder.com/600x600?text=Full+Set+Image';
             };
