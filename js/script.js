@@ -5,7 +5,7 @@ const allSets = [
         folderName: "EP-GW",
         teaserImage: "images/set-images/EP-GW/teaser.jpg",
         fullsetImage: "images/set-images/EP-GW/fullset.jpg",
-        description: "A vibrant collection of digital-inspired BJD characters",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
         isPopular: true,
         isNew: true,
         isRandom: false,
@@ -13,32 +13,32 @@ const allSets = [
         orientation: "horizontal",
         characters: [
             { name: "Creamy Bischon-Pink", position: "TopLeft", imageNum: 1 },
-            { name: "Virtual Butterfly-Purple", position: "TopMiddle", imageNum: 3 },
-            { name: "Wolf Girl-Black", position: "TopRight", imageNum: 5 },
             { name: "Charmed Serpent-Green", position: "BotLeft", imageNum: 2 },
+            { name: "Virtual Butterfly-Purple", position: "TopMiddle", imageNum: 3 },
             { name: "Bunny Nurse-Light Blue", position: "BotMiddle", imageNum: 4 },
+            { name: "Wolf Girl-Black", position: "TopRight", imageNum: 5 },
             { name: "Sea Hare-Blue", position: "BotRight", imageNum: 6 }
         ]
     },
     {
         id: 2,
-        name: "Dragon Series Set 1",
-        folderName: "dragon-set-1",
-        teaserImage: "images/set-images/dragon-set-1/teaser.jpg",
-        fullsetImage: "images/set-images/dragon-set-1/fullset.jpg",
-        description: "Limited edition dragon-themed collection",
+        name: "MEOW 3",
+        folderName: "MEOW-3",
+        teaserImage: "images/set-images/MEOW-3/teaser.jpg",
+        fullsetImage: "images/set-images/MEOW-3/fullset.jpg",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
         isPopular: true,
         isNew: false,
         isRandom: false,
         isUndetermined: false,
         orientation: "vertical",
         characters: [
-            { name: "Azure Dragon", position: "TopLeft", imageNum: 1 },
-            { name: "Golden Dragon", position: "TopMiddle", imageNum: 4 },
-            { name: "Crimson Dragon", position: "TopRight", imageNum: 5 },
-            { name: "Emerald Dragon", position: "MiddleLeft", imageNum: 2 },
-            { name: "Silver Dragon", position: "MiddleRight", imageNum: 6 },
-            { name: "Ruby Dragon", position: "BotLeft", imageNum: 3 }
+            { name: "Vivi", position: "TopLeft", imageNum: 1 },
+            { name: "Ankh", position: "MiddleLeft", imageNum: 2 },
+            { name: "Rinne", position: "BotLeft", imageNum: 3 },
+            { name: "Fufu", position: "TopRight", imageNum: 4 },
+            { name: "Zero", position: "MiddleRight", imageNum: 5 },
+            { name: "Zizi", position: "BotRight", imageNum: 6 }
         ]
     },
     {
@@ -47,7 +47,7 @@ const allSets = [
         folderName: "celestial-set",
         teaserImage: "images/set-images/celestial-set/teaser.jpg",
         fullsetImage: "images/set-images/celestial-set/fullset.jpg",
-        description: "Mythical creatures collection",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
         isPopular: true,
         isNew: false,
         isRandom: false,
@@ -68,7 +68,7 @@ const allSets = [
         folderName: "legends-set",
         teaserImage: "images/set-images/legends-set/teaser.jpg",
         fullsetImage: "images/set-images/legends-set/fullset.jpg",
-        description: "Historical character collection",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
         isPopular: false,
         isNew: true,
         isRandom: false,
@@ -89,7 +89,7 @@ const allSets = [
         folderName: "forest-set",
         teaserImage: "images/set-images/forest-set/teaser.jpg",
         fullsetImage: "images/set-images/forest-set/fullset.jpg",
-        description: "Nature-inspired magical collection",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
         isPopular: true,
         isNew: true,
         isRandom: false,
@@ -110,7 +110,7 @@ const allSets = [
         folderName: "ocean-set",
         teaserImage: "images/set-images/ocean-set/teaser.jpg",
         fullsetImage: "images/set-images/ocean-set/fullset.jpg",
-        description: "Aquatic-themed luxury collection",
+        description: "Disclaimer: All blind box placements are estimated off live unboxings. Unbox at your own risk!",
         isPopular: true,
         isNew: false,
         isRandom: false,
@@ -174,12 +174,10 @@ const searchInput = document.getElementById('searchInput');
 const clearBtn = document.getElementById('clearBtn');
 const resultsInfo = document.getElementById('search-results-info');
 
-// Initialize page
 document.addEventListener('DOMContentLoaded', () => {
     initializeModal();
     initializeSearch();
     
-    // Check which page we're on
     const currentPage = window.location.pathname;
     
     if (currentPage.includes('index.html') || currentPage.endsWith('/')) {
@@ -191,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // SEARCH FUNCTIONALITY
 // ============================================
 
-// Initialize search functionality
 function initializeSearch() {
     const searchInput = document.getElementById('searchInput');
     const clearBtn = document.getElementById('clearBtn');
@@ -213,13 +210,11 @@ function initializeSearch() {
     }
 }
 
-// Handle search across all pages
 function handleSearch(searchTerm) {
     searchTerm = searchTerm.toLowerCase().trim();
     const resultsInfo = document.getElementById('search-results-info');
     const currentPage = window.location.pathname;
 
-    // Filter sets based on search
     let filteredSets = allSets;
     
     if (searchTerm !== '') {
@@ -233,7 +228,6 @@ function handleSearch(searchTerm) {
         });
     }
 
-    // Update results info
     if (resultsInfo) {
         if (searchTerm === '') {
             resultsInfo.textContent = '';
@@ -242,7 +236,6 @@ function handleSearch(searchTerm) {
         }
     }
 
-    // Render based on current page
     if (currentPage.includes('index.html') || currentPage.endsWith('/')) {
         renderHomePageSearch(searchTerm, filteredSets);
     } else if (currentPage.includes('new.html')) {
@@ -254,14 +247,12 @@ function handleSearch(searchTerm) {
     }
 }
 
-// Home page search - show all matching sets
 function renderHomePageSearch(searchTerm, filteredSets) {
     const popularContainer = document.getElementById('popularSetsContainer');
     const allSetsSection = document.getElementById('allSetsSection');
     const allSetsContainer = document.getElementById('allSetsContainer');
 
     if (searchTerm === '') {
-        // Show popular sets only (exclude random and undetermined)
         if (popularContainer) {
             loadPopularSetsHome();
         }
@@ -269,7 +260,6 @@ function renderHomePageSearch(searchTerm, filteredSets) {
             allSetsSection.style.display = 'none';
         }
     } else {
-        // Hide popular section and show all matching (including random and undetermined)
         if (popularContainer) {
             popularContainer.parentElement.style.display = 'none';
         }
@@ -286,7 +276,6 @@ function renderHomePageSearch(searchTerm, filteredSets) {
 // PAGE LOADING FUNCTIONS
 // ============================================
 
-// Load popular sets on home page (exclude random and undetermined)
 function loadPopularSetsHome() {
     const popularSets = allSets.filter(set => set.isPopular && !set.isRandom && !set.isUndetermined);
     const container = document.getElementById('popularSetsContainer');
@@ -297,13 +286,11 @@ function loadPopularSetsHome() {
     }
 }
 
-// Load new sets on new.html page (exclude random and undetermined)
 function loadNewSets() {
     const newSets = allSets.filter(set => set.isNew && !set.isRandom && !set.isUndetermined);
     renderSets(newSets, 'newSetsContainer');
 }
 
-// Load popular sets on popular.html page (exclude random and undetermined)
 function loadPopularSets() {
     const popularSets = allSets.filter(set => set.isPopular && !set.isRandom && !set.isUndetermined);
     renderSets(popularSets, 'popularSetsContainer');
@@ -313,7 +300,6 @@ function loadPopularSets() {
 // RENDERING FUNCTIONS
 // ============================================
 
-// Render sets to container
 function renderSets(setsToRender, containerId) {
     const container = document.getElementById(containerId);
     
@@ -337,14 +323,12 @@ function renderSets(setsToRender, containerId) {
     });
 }
 
-// Create individual set card with flexible character grid
 function createSetCard(set) {
     const card = document.createElement('div');
     card.className = 'set-card';
 
-    // Create character grid with orientation class
     const charactersHTML = set.characters.map(char => `
-        <div class="character-tag" data-image="images/set-images/${set.folderName}/${char.imageNum}.jpg" data-char-name="${char.name}">
+        <div class="character-tag" data-set-folder="${set.folderName}" data-image-num="${char.imageNum}" data-char-name="${char.name}">
             <strong>${char.name}</strong>
             <span class="position-indicator">${char.position}</span>
         </div>
@@ -368,12 +352,12 @@ function createSetCard(set) {
         badgeHTML += '</div>';
     }
 
-    const orientationClass = set.orientation || 'horizontal'; // default to horizontal
+    const orientationClass = set.orientation || 'horizontal';
 
     card.innerHTML = `
         <div class="set-image-container">
             ${badgeHTML}
-            <img src="${set.teaserImage}" alt="${set.name}" onerror="this.src='https://via.placeholder.com/300x250?text=BJD+Set'">
+            <img class="set-gallery-image" src="${set.teaserImage}" alt="${set.name}" onerror="this.src='https://via.placeholder.com/300x250?text=BJD+Set'">
         </div>
         <div class="set-info">
             <div class="set-name">${set.name}</div>
@@ -387,14 +371,15 @@ function createSetCard(set) {
         </div>
     `;
 
-    // Add hover event listeners to character tags
-    const charTags = card.querySelectorAll('.character-tag');
-    const mainImage = card.querySelector('.set-image-container img');
+    const mainImage = card.querySelector('.set-gallery-image');
     const originalSrc = mainImage.src;
+    const charTags = card.querySelectorAll('.character-tag');
 
     charTags.forEach(tag => {
         tag.addEventListener('mouseenter', () => {
-            const imageSrc = tag.getAttribute('data-image');
+            const folderName = tag.getAttribute('data-set-folder');
+            const imageNum = tag.getAttribute('data-image-num');
+            const imageSrc = `images/set-images/${folderName}/${imageNum}.jpg`;
             mainImage.src = imageSrc;
             mainImage.onerror = function() {
                 this.src = 'https://via.placeholder.com/300x250?text=No+Image';
@@ -409,9 +394,10 @@ function createSetCard(set) {
         });
     });
 
-    // Add click event to open modal
-    card.addEventListener('click', () => {
-        openModal(set.id);
+    card.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('character-tag') && !e.target.closest('.character-tag')) {
+            openModal(set.id);
+        }
     });
 
     return card;
@@ -421,17 +407,14 @@ function createSetCard(set) {
 // MODAL/POPUP FUNCTIONALITY
 // ============================================
 
-// Initialize modal
 function initializeModal() {
     const modal = document.getElementById('setModal');
     const closeBtn = document.querySelector('.close-modal');
 
-    // Close modal when X is clicked
     if (closeBtn) {
         closeBtn.addEventListener('click', closeModal);
     }
 
-    // Close modal when clicking outside the content
     if (modal) {
         window.addEventListener('click', (event) => {
             if (event.target === modal) {
@@ -440,7 +423,6 @@ function initializeModal() {
         });
     }
 
-    // Close modal with Escape key
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
             closeModal();
@@ -448,14 +430,12 @@ function initializeModal() {
     });
 }
 
-// Open modal with set details
 function openModal(setId) {
     const set = allSets.find(s => s.id === setId);
     if (!set) return;
 
     const modal = document.getElementById('setModal');
     
-    // Update modal content
     const modalImage = document.getElementById('modalImage');
     modalImage.src = set.fullsetImage;
     modalImage.onerror = function() {
@@ -465,12 +445,11 @@ function openModal(setId) {
     document.getElementById('modalTitle').textContent = set.name;
     document.getElementById('modalDescription').textContent = set.description;
 
-    // Update characters list with proper orientation
     const characterList = document.getElementById('modalCharacterList');
     const orientationClass = set.orientation || 'horizontal';
     
     const modalCharactersHTML = set.characters.map(char => `
-        <div class="character-tag" data-image="images/set-images/${set.folderName}/${char.imageNum}.jpg" data-char-name="${char.name}">
+        <div class="character-tag" data-set-folder="${set.folderName}" data-image-num="${char.imageNum}" data-char-name="${char.name}">
             <strong>${char.name}</strong>
             <span class="position-indicator">${char.position}</span>
         </div>
@@ -479,13 +458,14 @@ function openModal(setId) {
     characterList.className = `character-list ${orientationClass}`;
     characterList.innerHTML = modalCharactersHTML;
 
-    // Add hover event listeners to modal character tags
     const modalCharTags = characterList.querySelectorAll('.character-tag');
     const originalModalImage = set.fullsetImage;
 
     modalCharTags.forEach(tag => {
         tag.addEventListener('mouseenter', () => {
-            const imageSrc = tag.getAttribute('data-image');
+            const folderName = tag.getAttribute('data-set-folder');
+            const imageNum = tag.getAttribute('data-image-num');
+            const imageSrc = `images/set-images/${folderName}/${imageNum}.jpg`;
             modalImage.src = imageSrc;
             modalImage.onerror = function() {
                 this.src = 'https://via.placeholder.com/600x600?text=No+Image';
@@ -500,18 +480,16 @@ function openModal(setId) {
         });
     });
 
-    // Show modal
     if (modal) {
         modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        document.body.style.overflow = 'hidden';
     }
 }
 
-// Close modal
 function closeModal() {
     const modal = document.getElementById('setModal');
     if (modal) {
         modal.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
+        document.body.style.overflow = 'auto';
     }
 }
