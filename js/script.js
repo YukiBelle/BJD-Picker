@@ -463,9 +463,11 @@ card.innerHTML = `
     });
 
     card.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('character-tag') && !e.target.closest('.character-tag')) {
+    if (!e.target.classList.contains('character-tag') && !e.target.closest('.character-tag')) {
+        if (window.innerWidth > 768) {
             openModal(set.id);
         }
+    }
     });
 
     return card;
