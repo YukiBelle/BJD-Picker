@@ -1,12 +1,16 @@
+// Sample data - replace with your actual sets
 const allSets = [
     {
         id: 1,
         name: "Electronic Pet Game World",
-        teaserImage: "images/set-images/EP-GW-teaser.jpg",
-        fullsetImage: "images/set-images/EP-GW-fullset.jpg",
+        teaserImage: "images/set-images/EP-GW-teaser.png",
+        fullsetImage: "images/set-images/EP-GW-fullset.png",
         description: "A vibrant collection of digital-inspired BJD characters",
         isPopular: true,
         isNew: true,
+        isRandom: false,
+        isUndetermined: false,
+        orientation: "horizontal",
         characters: [
             { name: "Creamy Bischon-Pink", position: "TopLeft" },
             { name: "Virtual Butterfly-Purple", position: "TopMiddle" },
@@ -18,16 +22,19 @@ const allSets = [
     },
     {
         id: 2,
-        name: "Twinkle Polaris",
+        name: "Dragon Series Set 1",
         teaserImage: "images/set-images/dragon-set-1-teaser.png",
         fullsetImage: "images/set-images/dragon-set-1-fullset.png",
         description: "Limited edition dragon-themed collection",
         isPopular: true,
-        isNew: true,
+        isNew: false,
+        isRandom: false,
+        isUndetermined: false,
+        orientation: "vertical",
         characters: [
             { name: "Azure Dragon", position: "TopLeft" },
             { name: "Golden Dragon", position: "TopMiddle" },
-            { name: "Yuni", position: "TopRight" },
+            { name: "Crimson Dragon", position: "TopRight" },
             { name: "Emerald Dragon", position: "BotLeft" },
             { name: "Silver Dragon", position: "BotMiddle" },
             { name: "Ruby Dragon", position: "BotRight" }
@@ -41,6 +48,9 @@ const allSets = [
         description: "Mythical creatures collection",
         isPopular: true,
         isNew: false,
+        isRandom: false,
+        isUndetermined: false,
+        orientation: "horizontal",
         characters: [
             { name: "Moon Guardian", position: "TopLeft" },
             { name: "Sun Protector", position: "TopMiddle" },
@@ -58,6 +68,9 @@ const allSets = [
         description: "Historical character collection",
         isPopular: false,
         isNew: true,
+        isRandom: false,
+        isUndetermined: false,
+        orientation: "vertical",
         characters: [
             { name: "Emperor", position: "TopLeft" },
             { name: "Empress", position: "TopMiddle" },
@@ -75,6 +88,9 @@ const allSets = [
         description: "Nature-inspired magical collection",
         isPopular: true,
         isNew: true,
+        isRandom: false,
+        isUndetermined: false,
+        orientation: "horizontal",
         characters: [
             { name: "Forest Fairy", position: "TopLeft" },
             { name: "Tree Guardian", position: "TopMiddle" },
@@ -92,6 +108,9 @@ const allSets = [
         description: "Aquatic-themed luxury collection",
         isPopular: true,
         isNew: false,
+        isRandom: false,
+        isUndetermined: false,
+        orientation: "vertical",
         characters: [
             { name: "Mermaid Princess", position: "TopLeft" },
             { name: "Sea King", position: "TopMiddle" },
@@ -99,6 +118,46 @@ const allSets = [
             { name: "Coral Guardian", position: "BotLeft" },
             { name: "Wave Dancer", position: "BotMiddle" },
             { name: "Depths Keeper", position: "BotRight" }
+        ]
+    },
+    {
+        id: 7,
+        name: "Mystery Box Set",
+        teaserImage: "images/set-images/mystery-set-teaser.png",
+        fullsetImage: "images/set-images/mystery-set-fullset.png",
+        description: "There are currently no spots known for this set. It is randomly placed",
+        isPopular: false,
+        isNew: false,
+        isRandom: true,
+        isUndetermined: false,
+        orientation: "horizontal",
+        characters: [
+            { name: "Unknown 1", position: "Random" },
+            { name: "Unknown 2", position: "Random" },
+            { name: "Unknown 3", position: "Random" },
+            { name: "Unknown 4", position: "Random" },
+            { name: "Unknown 5", position: "Random" },
+            { name: "Unknown 6", position: "Random" }
+        ]
+    },
+    {
+        id: 8,
+        name: "Undetermined Collection",
+        teaserImage: "images/set-images/undetermined-set-teaser.png",
+        fullsetImage: "images/set-images/undetermined-set-fullset.png",
+        description: "Character positions are still being determined for this collection",
+        isPopular: false,
+        isNew: false,
+        isRandom: false,
+        isUndetermined: true,
+        orientation: "horizontal",
+        characters: [
+            { name: "Character 1", position: "Undetermined" },
+            { name: "Character 2", position: "Undetermined" },
+            { name: "Character 3", position: "Undetermined" },
+            { name: "Character 4", position: "Undetermined" },
+            { name: "Character 5", position: "Undetermined" },
+            { name: "Character 6", position: "Undetermined" }
         ]
     }
 ];
@@ -195,7 +254,7 @@ function renderHomePageSearch(searchTerm, filteredSets) {
     const allSetsContainer = document.getElementById('allSetsContainer');
 
     if (searchTerm === '') {
-        // Show popular sets only
+        // Show popular sets only (exclude random and undetermined)
         if (popularContainer) {
             loadPopularSetsHome();
         }
@@ -203,7 +262,7 @@ function renderHomePageSearch(searchTerm, filteredSets) {
             allSetsSection.style.display = 'none';
         }
     } else {
-        // Hide popular section and show all matching
+        // Hide popular section and show all matching (including random and undetermined)
         if (popularContainer) {
             popularContainer.parentElement.style.display = 'none';
         }
@@ -220,9 +279,9 @@ function renderHomePageSearch(searchTerm, filteredSets) {
 // PAGE LOADING FUNCTIONS
 // ============================================
 
-// Load popular sets on home page
+// Load popular sets on home page (exclude random and undetermined)
 function loadPopularSetsHome() {
-    const popularSets = allSets.filter(set => set.isPopular);
+    const popularSets = allSets.filter(set => set.isPopular && !set.isRandom && !set.isUndetermined);
     const container = document.getElementById('popularSetsContainer');
     
     if (container) {
@@ -231,15 +290,15 @@ function loadPopularSetsHome() {
     }
 }
 
-// Load new sets on new.html page
+// Load new sets on new.html page (exclude random and undetermined)
 function loadNewSets() {
-    const newSets = allSets.filter(set => set.isNew);
+    const newSets = allSets.filter(set => set.isNew && !set.isRandom && !set.isUndetermined);
     renderSets(newSets, 'newSetsContainer');
 }
 
-// Load popular sets on popular.html page
+// Load popular sets on popular.html page (exclude random and undetermined)
 function loadPopularSets() {
-    const popularSets = allSets.filter(set => set.isPopular);
+    const popularSets = allSets.filter(set => set.isPopular && !set.isRandom && !set.isUndetermined);
     renderSets(popularSets, 'popularSetsContainer');
 }
 
@@ -271,12 +330,12 @@ function renderSets(setsToRender, containerId) {
     });
 }
 
-// Create individual set card with 6-character grid
+// Create individual set card with flexible character grid
 function createSetCard(set) {
     const card = document.createElement('div');
     card.className = 'set-card';
 
-    // Create 3x2 grid of characters
+    // Create character grid with orientation class
     const charactersHTML = set.characters.map(char => `
         <div class="character-tag">
             <strong>${char.name}</strong>
@@ -284,17 +343,25 @@ function createSetCard(set) {
         </div>
     `).join('');
 
-let badgeHTML = '';
-if (set.isPopular || set.isNew) {
-    badgeHTML = '<div class="badge-container">';
-    if (set.isPopular) {
-        badgeHTML += '<span class="popular-badge">Popular</span>';
+    let badgeHTML = '';
+    if (set.isPopular || set.isNew || set.isRandom || set.isUndetermined) {
+        badgeHTML = '<div class="badge-container">';
+        if (set.isPopular) {
+            badgeHTML += '<span class="popular-badge">Popular</span>';
+        }
+        if (set.isNew) {
+            badgeHTML += '<span class="popular-badge new-badge">New</span>';
+        }
+        if (set.isRandom) {
+            badgeHTML += '<span class="popular-badge random-badge">Random</span>';
+        }
+        if (set.isUndetermined) {
+            badgeHTML += '<span class="popular-badge undetermined-badge">Undetermined</span>';
+        }
+        badgeHTML += '</div>';
     }
-    if (set.isNew) {
-        badgeHTML += '<span class="popular-badge new-badge">New</span>';
-    }
-    badgeHTML += '</div>';
-}
+
+    const orientationClass = set.orientation || 'horizontal'; // default to horizontal
 
     card.innerHTML = `
         <div class="set-image-container">
@@ -306,7 +373,7 @@ if (set.isPopular || set.isNew) {
             <div class="set-details">${set.description}</div>
             <div class="characters-section">
                 <div class="characters-label">Characters (6):</div>
-                <div class="character-list">
+                <div class="character-list ${orientationClass}">
                     ${charactersHTML}
                 </div>
             </div>
@@ -367,8 +434,10 @@ function openModal(setId) {
     document.getElementById('modalTitle').textContent = set.name;
     document.getElementById('modalDescription').textContent = set.description;
 
-    // Update characters list with 6-character grid
+    // Update characters list with proper orientation
     const characterList = document.getElementById('modalCharacterList');
+    const orientationClass = set.orientation || 'horizontal';
+    characterList.className = `character-list ${orientationClass}`;
     characterList.innerHTML = set.characters.map(char => `
         <div class="character-tag">
             <strong>${char.name}</strong>

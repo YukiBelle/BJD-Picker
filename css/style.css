@@ -209,6 +209,8 @@ body {
     display: flex;
     gap: 8px;
     z-index: 10;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 /* Popular Badge */
@@ -224,6 +226,14 @@ body {
 
 .new-badge {
     background: #4ecdc4;
+}
+
+.random-badge {
+    background: #f59e0b;
+}
+
+.undetermined-badge {
+    background: #8b5cf6;
 }
 
 /* Set Info */
@@ -259,10 +269,18 @@ body {
     color: #667eea;
 }
 
-/* Character Grid for Set Cards (3 across, 2 down) */
-.character-list {
+/* Character Grid - Horizontal (3 columns) */
+.character-list.horizontal {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Character Grid - Vertical (2 columns) */
+.character-list.vertical {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
     margin-top: 10px;
 }
@@ -298,10 +316,18 @@ body {
     font-style: italic;
 }
 
-/* Modal Character Grid (larger) */
-.modal-characters .character-list {
+/* Modal Character Grid - Horizontal */
+.modal-characters .character-list.horizontal {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+/* Modal Character Grid - Vertical */
+.modal-characters .character-list.vertical {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     margin-top: 15px;
 }
@@ -560,13 +586,23 @@ body {
         font-size: 1.5em;
     }
 
-    .character-list {
+    .character-list.horizontal {
         grid-template-columns: repeat(2, 1fr);
         gap: 6px;
     }
 
-    .modal-characters .character-list {
+    .character-list.vertical {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .modal-characters .character-list.horizontal {
         grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .modal-characters .character-list.vertical {
+        grid-template-columns: 1fr;
         gap: 10px;
     }
 
@@ -627,12 +663,14 @@ body {
         font-size: 1.6em;
     }
 
-    .character-list {
+    .character-list.horizontal,
+    .character-list.vertical {
         grid-template-columns: 1fr;
         gap: 5px;
     }
 
-    .modal-characters .character-list {
+    .modal-characters .character-list.horizontal,
+    .modal-characters .character-list.vertical {
         grid-template-columns: 1fr;
         gap: 8px;
     }
