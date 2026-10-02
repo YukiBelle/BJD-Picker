@@ -117,7 +117,7 @@ const allSets = [
         isUndetermined: true,
         orientation: "vertical",
         characters: [
-            { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 }
+            { name: "Undetermined - Need more data", position: "?", imageNum: 1 }
         ]
     },
     {
@@ -133,7 +133,7 @@ const allSets = [
         isUndetermined: true,
         orientation: "horizontal",
         characters: [
-            { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 }
+            { name: "Undetermined - Need more data", position: "?", imageNum: 1 }
         ]
     },
     {
@@ -147,9 +147,9 @@ const allSets = [
         isNew: false,
         isRandom: true,
         isUndetermined: false,
-        orientation: "horizontal",
+        orientation: "vertical",
         characters: [
-            { name: "Undetermined - Need more data", position: "TopLeft", imageNum: 1 }
+            { name: "Undetermined - Need more data", position: "?", imageNum: 1 }
         ]
     }
 ];
@@ -157,6 +157,16 @@ const allSets = [
 document.addEventListener('DOMContentLoaded', () => {
     initializeModal();
     initializeSearch();
+
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.value = '';
+    }
+
+    const resultsInfo = document.getElementById('search-results-info');
+    if (resultsInfo) {
+        resultsInfo.textContent = '';
+    }
 
     const currentPage = window.location.pathname.toLowerCase();
 
@@ -174,18 +184,59 @@ function initializeSearch() {
     const clearBtn = document.getElementById('clearBtn');
 
     if (searchInput) {
+        searchInput.value = '';
+        searchInput.setAttribute('autocomplete', 'off');
+
         searchInput.addEventListener('input', (e) => {
             handleSearch(e.target.value);
         });
     }
 
-    if (clearBtn) {
+    if (clearBtn && searchInput) {
         clearBtn.addEventListener('click', () => {
             searchInput.value = '';
             handleSearch('');
             searchInput.focus();
         });
     }
+
+    // Extra protection against browser keeping old text after refresh/back
+    window.addEventListener('pageshow', () => {
+        if (searchInput) {
+            searchInput.value = '';
+        }
+
+        const resultsInfo = document.getElementById('search-results-info');
+        if (resultsInfo) {
+            resultsInfo.textContent = '';
+        }
+
+        const currentPage = window.location.pathname.toLowerCase();
+
+        if (currentPage.includes('index.html') || currentPage.endsWith('/')) {
+            loadPopularSetsHome();
+            const allSetsSection = document.getElementById('allSetsSection');
+            if (allSetsSection) {
+                allSetsSection.style.display = 'none';
+            }
+
+            const popularContainer = document.getElementById('popularSetsContainer');
+            if (popularContainer) {
+                popularContainer.parentElement.style.display = 'block';
+            }
+        }
+    });
+}
+
+function getSearchableTags(set) {
+    const tags = [];
+
+    if (set.isNew) tags.push('new');
+    if (set.isPopular) tags.push('popular');
+    if (set.isRandom) tags.push('random');
+    if (set.isUndetermined) tags.push('undetermined');
+
+    return tags;
 }
 
 function handleSearch(searchTerm) {
@@ -203,7 +254,12 @@ function handleSearch(searchTerm) {
                 char.name.toLowerCase().includes(normalizedSearch)
             );
 
-            return matchesName || matchesDescription || matchesCharacter;
+            const searchableTags = getSearchableTags(set);
+            const matchesTag = searchableTags.some(tag =>
+                tag.includes(normalizedSearch)
+            );
+
+            return matchesName || matchesDescription || matchesCharacter || matchesTag;
         });
     }
 
@@ -250,9 +306,6 @@ function renderHomePageSearch(searchTerm, filteredSets) {
             allSetsSection.style.display = 'block';
         }
 
-        // IMPORTANT:
-        // On the index page, search should show ALL matching sets,
-        // including random and undetermined.
         renderSets(filteredSets, 'allSetsContainer');
     }
 }
@@ -262,7 +315,6 @@ function renderHomePageSearch(searchTerm, filteredSets) {
 // ============================================
 
 function loadPopularSetsHome() {
-    // Default home page should HIDE random and undetermined
     const allDisplaySets = allSets.filter(set => !set.isRandom && !set.isUndetermined);
     renderSets(allDisplaySets, 'popularSetsContainer');
 }
