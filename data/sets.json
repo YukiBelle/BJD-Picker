@@ -1,0 +1,17 @@
+{
+    "sets": [
+        {
+            "id": 1,
+            "name": "Dragon Series Set 1",
+            "image": "images/set-images/dragon-set-1.jpg",
+            "description": "Limited edition dragon-themed collection",
+            "isPopular": true,
+            "isNew": false,
+            "characters": [
+                {"name": "Azure Dragon", "position": "Left"},
+                {"name": "Golden Dragon", "position": "Center"},
+                {"name": "Crimson Dragon", "position": "Right"}
+            ]
+        }
+    ]
+}

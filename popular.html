@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Sets - BJD Picker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">BJD Picker</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="new.html" class="nav-link">NEW</a></li>
+                <li><a href="popular.html" class="nav-link active">Popular</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>Popular Sets</h1>
+            <p>Community favorites and best sellers</p>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-wrapper">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-box" 
+                    placeholder="Search for a set or character..."
+                >
+                <button id="clearBtn" class="clear-btn">Clear</button>
+            </div>
+            <div id="search-results-info" class="search-results-info"></div>
+        </div>
+
+        <!-- Popular Sets Section -->
+        <section class="sets-section">
+            <div id="popularSetsContainer" class="sets-grid">
+                <!-- Popular sets will be loaded here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 BJD Picker. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Load popular sets on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPopularSets();
+        });
+    </script>
+</body>
+</html>
